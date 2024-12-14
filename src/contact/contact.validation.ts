@@ -1,4 +1,4 @@
-import { z, ZodType } from "zod";
+import { z, ZodType } from 'zod';
 
 export class ContactValidation {
   static readonly CREATE: ZodType = z.object({
@@ -6,7 +6,7 @@ export class ContactValidation {
     last_name: z.string().min(1).max(100).optional(),
     email: z.string().min(1).max(100).email().optional(),
     phone: z.string().min(1).max(20).optional(),
-  })
+  });
 
   static readonly UPDATE: ZodType = z.object({
     id: z.number().positive(),
@@ -14,7 +14,7 @@ export class ContactValidation {
     last_name: z.string().min(1).max(100).optional(),
     email: z.string().min(1).max(100).email().optional(),
     phone: z.string().min(1).max(20).optional(),
-  })
+  });
 
   static readonly SEARCH: ZodType = z.object({
     name: z.string().min(1).optional(),
@@ -22,5 +22,5 @@ export class ContactValidation {
     phone: z.string().min(1).optional(),
     page: z.number().positive(),
     size: z.number().positive(),
-  })
+  });
 }
